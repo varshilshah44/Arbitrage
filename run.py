@@ -104,7 +104,8 @@ def bot_money(par):
                     with open('symbol.txt') as f:
                         symbol=f.read()
                     print(f"{Style.DIM}{get_time()}{Style.RESET_ALL} Crypto pair is: {symbol}")
-                    p=subprocess.run([how_do_you_usually_launch_python, "bot-fake-money.py",symbol,balance,renew,symbol,ex1,ex2,ex3])
+                
+                    p=subprocess.run([how_do_you_usually_launch_python, "bot-fake-money.py",symbol,balance,renew,symbol,ex1,ex2,ex3,order_id])
 
                     # Get the return code (0 usually means success)
                     print(f"Return code: {p}")

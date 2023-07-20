@@ -15,7 +15,7 @@ prec_ask_price = 0
 prec_bid_price = 0
 i=0
 z=0
-if len(sys.argv) != 8:
+if len(sys.argv) != 9:
     print(f" \nIncorrect usage, this is what it has to look like: $ {how_do_you_usually_launch_python} bot-classic.py [pair] [total_usdt_investment] [stop.delay.minutes] [tlgrm.msg.title] [ex1] [ex2] [ex3]\n ")
     print(f" \n This is the list of args you wrote: {sys.argv}")
     sys.exit(1)

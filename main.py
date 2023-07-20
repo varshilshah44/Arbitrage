@@ -14,12 +14,13 @@ print(f" \n{Fore.BLUE}{Style.BRIGHT}FAKE-MONEY VERSION{Style.RESET_ALL}\n \nLink
 args = sys.argv
 mode = args[1]
 balance = args[3]
-if len(args)>=8:
-    symbol=args[7]
+if len(args)>=9:
+    symbol=args[8]
 renew=args[2]
 ex1=args[4]
 ex2=args[5]
 ex3=args[6]
+order_id=args[7]
 i=0
 with open(f"start_balance.txt","w") as f:
     f.write(balance)
@@ -42,7 +43,7 @@ while True:
                 balance=f.read()
 
         if len(args)>=8:
-            p=subprocess.run([how_do_you_usually_launch_python,"bot-fake-money.py",symbol,balance,renew,symbol,ex1,ex2,ex3])
+            p=subprocess.run([how_do_you_usually_launch_python,"bot-fake-money.py",symbol,balance,renew,symbol,ex1,ex2,ex3,order_id])
             with open(f"balance.txt") as f:
                 balance=f.read()
     elif mode == "classic":
