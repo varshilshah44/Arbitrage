@@ -1,21 +1,21 @@
-import { useEffect } from "react";
-import { Navigate, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Home from "../pages/Home"
 import Login from "../pages/Login"
 import History from "../pages/History"
 import Master from "../pages/Master";
+import Currency from "../pages/Currency";
 
-const PublicRoute = ({ component: Component, title }) => {
-    const isLogin = localStorage.getItem("accessToken") || false;
+// const PublicRoute = ({ component: Component, title }) => {
+//     const isLogin = localStorage.getItem("accessToken") || false;
 
-    useEffect(() => {
-        document.title = title;
-    }, [title]);
+//     useEffect(() => {
+//         document.title = title;
+//     }, [title]);
 
-    return !isLogin ? <>
-    <Component />
-    </> :  <Navigate to="/login" />
-}
+//     return !isLogin ? <>
+//     <Component />
+//     </> :  <Navigate to="/login" />
+// }
 
 const PrivateRoute = ({ component: Component, title }) => {
     const isLogin = localStorage.getItem("accessToken") || false;
@@ -44,6 +44,12 @@ const routes = () => {
             exact: true,
             auth: false,
             element: <Login title="Arbitrage Bot - Login" />
+        },
+        {
+            path: "currency-table",
+            exact: true,
+            auth: false,
+            element: <Currency title="Arbitrage Bot - Currency" />
         },
     ]
 }

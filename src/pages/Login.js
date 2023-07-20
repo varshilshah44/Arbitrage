@@ -28,7 +28,7 @@ const Login = () => {
       if (response?.data?.statusCode === 200) {
         toast.success(response?.data?.status) 
         localStorage.setItem("accessToken", response.data.token);
-        navigate('/home')
+        navigate('/currency-table')
       } else {
         toast.error(response?.response?.data?.message || 'Logged in failed')
       }

@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.typography{
+  display: flex;
+  justify-content: center;
+}
+
+table{
+  border: 1px solid rgba(224, 224, 224, 1);
+}
+
+.table-head{
+  background-color: #f0f0f0;
+}
+
+.table-container{
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
+  padding-top: 0rem;
+  overflow-x: hidden !important;
+  width: 92% !important;
+}

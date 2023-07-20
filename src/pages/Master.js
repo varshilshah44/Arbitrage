@@ -16,7 +16,7 @@ function Master(props) {
         if (!isLogin) {
             navigate('/login');
         }
-    }, [isLogin]);
+    }, [isLogin, navigate]);
 
 
     return (
