@@ -1,0 +1,8 @@
+{
+	"DATABASE": "mongodb+srv://varshils:fs5zUYdIySJhpuHV@cluster0.kydewka.mongodb.net/arbitrage",
+	"PORT": 4001,
+	"JWT_SECRET": "this-is-latest-event-gallery-token",
+	"JWT_EXPIRES_IN": "90d",
+	"JWT_TOKEN_EXPIRES_IN": "90",
+	"PYTHON_URL": "http://127.0.0.1:8001"
+}
