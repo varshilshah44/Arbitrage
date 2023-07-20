@@ -25,6 +25,7 @@ def bot_money(par):
     exchange_2 = par['exchange_2']
     exchange_3 = par['exchange_3']
     crypto_pair = par['crypto_pair']
+    order_id =   par['orderId']
     #  input_list = ["fake-money", renew_time, balance_to_use, exchange_1, exchange_2, exchange_3, crypto_pair]
     init()
     def emergency_convert_list(pair_to_sell,exlist):
@@ -47,7 +48,7 @@ def bot_money(par):
     try:
         if len(sys.argv) < 2:
             # input_list = ["mode (fake-money, classic, delta-neutral)", "renew time (in minutes)", "balance to use (USDT)", "exchange 1","exchange 2","exchange 3","crypto pair"]
-            input_list = ["fake-money", renew_time, balance_to_use, exchange_1, exchange_2, exchange_3, crypto_pair]
+            input_list = ["fake-money", renew_time, balance_to_use, exchange_1, exchange_2, exchange_3, crypto_pair,order_id]
             output = []
             
             for inputt in input_list:
@@ -61,9 +62,9 @@ def bot_money(par):
                 f.close()
             
             if output[6]=='':
-                subprocess.run([how_do_you_usually_launch_python,f"main.py",output[0],output[1],output[2],output[3],output[4],output[5]])
+                subprocess.run([how_do_you_usually_launch_python,f"main.py",output[0],output[1],output[2],output[3],output[4],output[5],output[7]])
             else:
-                subprocess.run([how_do_you_usually_launch_python,f"main.py",output[0],output[1],output[2],output[3],output[4],output[5],output[6]])
+                subprocess.run([how_do_you_usually_launch_python,f"main.py",output[0],output[1],output[2],output[3],output[4],output[5],output[7],output[6]])
 
         else:
             
