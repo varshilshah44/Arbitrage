@@ -23,7 +23,6 @@ function History() {
         getHistoryData();
     }, []);
 
-    console.log("histories", histories)
     return (
         <Box
         sx={{
@@ -33,8 +32,10 @@ function History() {
           alignItems: 'center',
           minHeight: '100vh',
           bgcolor: '#f5f5f5',
-          width: '80%', // Adjust the width value as needed
-          margin: '0 auto', // Centers the box horizontally on the page
+          borderRadius: '4px',
+          overflow: 'hidden',
+          width: '100%', 
+          margin: '0 auto', 
         }}
       >
         <Typography variant="h5" sx={{ marginBottom: '20px' }}>
