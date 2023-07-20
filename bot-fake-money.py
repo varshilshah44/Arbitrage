@@ -201,7 +201,7 @@ with open('balance.txt', 'r+') as balance_file:
 total_session_profit_usd = total_usdt_balance-old_balance
 total_session_profit_pct = (total_session_profit_usd/old_balance)*100
 
-Total_profit = {"orderId" : f"{orderId}" ,"Total profit" : f"{round(total_session_profit_pct,4)}%", "amount" : "({total_session_profit_usd} USDT)", "status" : "success"}
+Total_profit = {"orderId" : f"{orderId}" ,"Total profit" : f"{round(total_session_profit_pct,4)}%", "amount" : f"{total_session_profit_usd}", "status" : "success"}
 r = requests.post("http://127.0.0.1:7000/callback",Total_profit)
 print(r)
 
