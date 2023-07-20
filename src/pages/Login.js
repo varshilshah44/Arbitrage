@@ -26,7 +26,6 @@ const Login = () => {
       });
 
       if (response?.data?.statusCode === 200) {
-        console.log(response)
         toast.success(response?.data?.status) 
         localStorage.setItem("accessToken", response.data.token);
         navigate('/home')

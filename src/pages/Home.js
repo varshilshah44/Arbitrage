@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { Typography, TextField, Checkbox, FormControlLabel, Button, Box, MenuItem } from '@mui/material';
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import AxiosInstance from '../helpers/AxiosRequest';
 
 function Home() {
+    const navigate = useNavigate();
     const [amount, setAmount] = useState('')
     const [exchange1, setExchange1] = useState('')
     const [exchange2, setExchange2] = useState('')
     const [exchange3, setExchange3] = useState('')
     const [pair, setPair] = useState('')
     const [time, setTime] = useState('')
+
+    const handleHistoryClick = (event) => {
+      navigate('/history')
+    }
 
     const handleExchangeChange1 = (event) => {
       setExchange1(event.target.value)
@@ -62,6 +68,32 @@ function Home() {
     };
 
     return (
+      <>
+          <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            bgcolor: '#f5f5f5',
+            position: 'relative', 
+            width: '80%', 
+            margin: '0 auto',
+          }}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleHistoryClick}
+            sx={{
+              position: 'absolute',
+              top: '10px',
+              right: '10px',
+            }}
+          >
+            History
+          </Button>
+        </Box>
+
         <Box
           sx={{
             display: 'flex',
@@ -182,6 +214,7 @@ function Home() {
             </form>
           </Box>
         </Box>
+        </>
       );
 }
 

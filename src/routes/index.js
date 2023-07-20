@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Navigate, Route } from "react-router-dom";
 import Home from "../pages/Home"
 import Login from "../pages/Login"
+import History from "../pages/History"
 import Master from "../pages/Master";
 
 const PublicRoute = ({ component: Component, title }) => {
@@ -31,6 +32,12 @@ const routes = () => {
             exact: true,
             auth: true,
             element: <PrivateRoute title="Arbitrage Bot" component={Home} />
+        },
+        {
+            path: "history",
+            exact: true,
+            auth: true,
+            element: <History title="Arbitrage Bot - History" />
         },
         {
             path: "login",
