@@ -3,14 +3,17 @@ import { useRoutes } from 'react-router-dom';
 import routes from './routes';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import { SocketContextProvider } from './context/socket';
 
 function App() {
   const routing = useRoutes(routes());
-  console.log("routing", routing)
+  // console.log("routing", routing);
   return (
     <>
-      {routing}
-      <ToastContainer />
+     <SocketContextProvider>
+        {routing}
+        <ToastContainer />
+      </SocketContextProvider>
     </>  
   );
 }
