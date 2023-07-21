@@ -4,5 +4,6 @@
 	"JWT_SECRET": "this-is-latest-event-gallery-token",
 	"JWT_EXPIRES_IN": "90d",
 	"JWT_TOKEN_EXPIRES_IN": "90",
-	"PYTHON_URL": "http://127.0.0.1:7000"
+	"PYTHON_URL": "http://127.0.0.1:7000",
+	"REACT_APP_URL": "http://localhost:3000"
 }
