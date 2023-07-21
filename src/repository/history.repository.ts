@@ -6,12 +6,18 @@ export class HistoryRepository {
     return result || false;
   };
 
-  static getHistories = async (userId): Promise<History[] | boolean> => {
+  static getHistories = async (userId, extraParams): Promise<any> => {
+    let { skip, limit } = extraParams;
+
+    const count = (await HistoryModel.find({ userId: userId }).count()) || 0;
+
     const result = await HistoryModel.find({ userId: userId })
       .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit)
       .populate("orderId");
 
-    return result || false;
+    return { result, count } || false;
   };
 
   static updateHistory = async (

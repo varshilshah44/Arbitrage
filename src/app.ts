@@ -19,14 +19,15 @@ if (process.env.NODE_ENV === "development") {
 
 // app.use(cors());
 
-app.use(cors({
+app.use(
+  cors(/* {
     credentials: true,
-    origin: ['https://gray-desert-085bf2710.3.azurestaticapps.net', 'http://localhost:3000'],
-    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
-    allowedHeaders: ['Authorization', 'Content-Type'],
-    "optionsSuccessStatus": 204
-}));
-
+    origin: ["*"],
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+    allowedHeaders: ["Authorization", "Content-Type"],
+    optionsSuccessStatus: 204,
+  } */)
+);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json({ limit: "50mb", type: "application/json" }));

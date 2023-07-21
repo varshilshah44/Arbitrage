@@ -4,12 +4,9 @@
 // const axios = require("axios");
 
 const initSocket = (io) => {
-  console.log('intiSocket', io);
-  
-  io.on('connection', (socket) => {
-    console.log('socket connect');
-    
-  })
+  io.on("connection", (socket) => {
+    console.log("socket connect");
+  });
 };
 
 export default initSocket;

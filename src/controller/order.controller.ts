@@ -23,17 +23,22 @@ export class OrderController {
       });
 
       if (result && typeof result !== "boolean") {
-        /* const pythonResponse = await axios.post(
-          `${config.get("PYTHON_URL")}/data`,
-          {
+        axios
+          .post(`${config.get("PYTHON_URL")}/bot`, {
             renew_time: String(time),
             balance_to_use: String(amount),
             exchange_1: exchange1,
             exchange_2: exchange2,
             exchange_3: exchange3,
             crypto_pair: pair,
-          }
-        ); */
+            orderId: result._id,
+          })
+          .then(() => {
+            console.log("Success bot");
+          })
+          .catch((err) => {
+            console.log("Failed bot", err);
+          });
 
         const historyObj = {
           make: "",
@@ -61,14 +66,19 @@ export class OrderController {
 
   static getHistories = catchAsync(
     async (req: any, res: Response, next: NextFunction) => {
-      const result = await HistoryRepository.getHistories(
-        new mongoose.Types.ObjectId(req.user._id)
+      let { page, limit } = req.query;
+      page = page || 1;
+      limit = limit || 10;
+      let skip = (page - 1) * limit;
+      const { result, count } = await HistoryRepository.getHistories(
+        new mongoose.Types.ObjectId(req.user._id),
+        { skip, limit }
       );
 
       if (Array.isArray(result)) {
         return sendSuccessResponseWithoutList(
           res,
-          result,
+          { result, count },
           200,
           messages.success.listMessage("histories")
         );
@@ -82,7 +92,10 @@ export class OrderController {
 
   static updateOrderDetails = catchAsync(
     async (req: any, res: Response, next: NextFunction) => {
-      const { make, percentage, amount, orderId, status } = req.body;
+      console.log("req.body", req.body);
+      const { percentage, amount, orderId, status } = req.body;
+      let index = percentage.indexOf("-");
+      const make = index === -1 ? "profit" : "loss";
 
       const result = await HistoryRepository.updateHistory(
         new mongoose.Types.ObjectId(orderId),
