@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { toast } from "react-toastify";
-import { Box, Button,Typography, Table, TableContainer, TableHead, Paper, TableRow, TableCell, TableBody, TablePagination } from '@mui/material';
+import { Box,Typography, Table, TableContainer, TableHead, Paper, TableRow, TableCell, TableBody, TablePagination } from '@mui/material';
 import AxiosInstance from '../helpers/AxiosRequest';
 
 function History() {
     const [histories, setHistories] = useState([])
     const [currentPage, setCurrentPage] = useState(0);
-    const [limit, setLimit] = useState(10);
+    const [limit,] = useState(10);
     const [totalPage, setTotalPage] = useState(0);
     let [totalHistoryData, setTotalHistoryData] = useState([]) 
 

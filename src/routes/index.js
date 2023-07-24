@@ -28,7 +28,7 @@ const PrivateRoute = ({ component: Component, title }) => {
 const routes = () => {
     return [
         {
-            path: "home",
+            path: "home/:id/:currency",
             exact: true,
             auth: true,
             element: <PrivateRoute title="Arbitrage Bot" component={Home} />

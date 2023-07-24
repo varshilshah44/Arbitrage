@@ -24,7 +24,7 @@ const Currency = () => {
         if (data) {
           const updatedData = cryptoName.map((item) => {
             const currency = item.name.toLowerCase();
-            return { ...item, price: `${data[currency].usd + ' ' +`USDT`}` };
+            return { ...item, price: `${data[currency].usd}` };
           });
           setCryptoName(updatedData);
           await new Promise((r) => setTimeout(r, 10000));
@@ -36,7 +36,7 @@ const Currency = () => {
   },[socket]);
 
   const handleNaviagte = (currencyName) => {
-    navigate(`/home?${currencyName}`);
+    navigate(`/home/${currencyName}`);
   }
 
   return (
@@ -58,7 +58,7 @@ const Currency = () => {
         <Typography variant="h5" className="typography" sx={{ marginBottom: '20px' }}>
           Currency Table
         </Typography>
-        <CommonTable rows={cryptoName} handleNaviagte={handleNaviagte} />
+        <CommonTable rows={cryptoName} handleNaviagte={handleNaviagte} currencySymbol={"/USDT"}/>
       </Box>
     </>
   )
