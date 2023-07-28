@@ -5,5 +5,16 @@
 	"JWT_EXPIRES_IN": "90d",
 	"JWT_TOKEN_EXPIRES_IN": "90",
 	"PYTHON_URL": "http://127.0.0.1:7000",
-	"REACT_APP_URL": "http://localhost:3000"
+	"REACT_APP_URL": "http://localhost:3000",
+	"CCTX": {
+		"BINANCE": {
+			"APIKEY": "Blzp6CIs4L22YMIZXv7YfJSKp5bHGY3zU4s6yqFA5riE3NeHxQsSS7zFadT1eHBB",
+			"SECRET": "bt72herdDVzqRIUK2li5Z4iSUDM6BAqy8KOJQfva3haQrkUmLULM8n725shEC6Fy"
+		},
+		"KUCOIN": {
+			"APIKEY": "64ba747f48513100018ad73e",
+			"SECRET": "9b726469-c5e5-43be-a7a3-3234f33f173a",
+			"PASSWORD": "Es*!9PmznhEf25g"
+		}
+	}
 }

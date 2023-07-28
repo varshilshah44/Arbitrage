@@ -63,7 +63,7 @@ const globalErrorHandler = (
   err.statusCode = err.statusCode || 500;
   err.status = err.status || "error";
 
-  if (process.env.NODE_ENV === "development") {
+  if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
     if (err.name === "CastError") err = handleCastErrorDB(err);
     if (err.code === 11000) err = handleDuplicateFieldsDB(err);
     if (err.name === "ValidationError") err = handleValidationErrorDB(err);
