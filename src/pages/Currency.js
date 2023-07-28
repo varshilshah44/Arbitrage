@@ -8,12 +8,11 @@ const Currency = () => {
   const navigate = useNavigate();
   const { socket } = useContext(SocketContext);
   const [cryptoName, setCryptoName] = useState([
-    { name: 'AAVE', price: '' },
+    { name: 'KAVA', price: '' },
+    { name: 'CAKE', price: '' },
     { name: '1INCH', price: '' },
-    { name: 'Solana', price: '' },
-    { name: 'Bitcoin', price: '' },
-    { name: 'BUSD', price: '' },
-    { name: 'Tether', price: '' },
+    { name: 'AAVE', price: '' },
+    { name: 'MKR', price: '' },
   ]);
 
   useEffect(() => {
@@ -24,10 +23,10 @@ const Currency = () => {
         if (data) {
           const updatedData = cryptoName.map((item) => {
             const currency = item.name.toLowerCase();
-            return { ...item, price: `${data[currency].usd}` };
+            return { ...item, price: `${data?.[currency]?.usd}` };
           });
           setCryptoName(updatedData);
-          await new Promise((r) => setTimeout(r, 10000));
+          await new Promise((r) => setTimeout(r, 2000));
           const cryptoNames = updatedData && updatedData.map(({ name }) => name).join(',');
           socket.emit('getCryptoData', cryptoNames);
         }

@@ -28,13 +28,19 @@ const PrivateRoute = ({ component: Component, title }) => {
 const routes = () => {
     return [
         {
+            path: "/",
+            exact: true,
+            auth: false,
+            element: localStorage.getItem("accessToken") ? <Navigate to="/currency-table" />  : <Navigate to="/login" />
+        },
+        {
             path: "home/:id/:currency",
             exact: true,
             auth: true,
             element: <PrivateRoute title="Arbitrage Bot" component={Home} />
         },
         {
-            path: "history",
+            path: "history/:type",
             exact: true,
             auth: true,
             element: <History title="Arbitrage Bot - History" />

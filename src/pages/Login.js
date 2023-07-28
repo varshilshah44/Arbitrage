@@ -41,7 +41,7 @@ const Login = () => {
     <Container maxWidth="xs">
       <Box
         sx={{
-          marginTop: '5rem',
+          marginTop: '70%',
           p: '2rem',
           backgroundColor: '#ffffff',
           borderRadius: '4px',
